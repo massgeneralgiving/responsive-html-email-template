@@ -8,19 +8,11 @@ Using MailChimp's html email template (blue-print) as the foundation, this templ
 **Download with Bower**
 
 `````
-$ bower install respmail
+$ bower install mghgiveblue2
 `````
 If you don't know what Bower is, read more about it here http://bower.io/
 
-Demo
-========
-http://www.charlesmudy.com/respmail/
-![Preview](http://www.charlesmudy.com/respmail/image.png)
-
 Inspiration
 ========
+http://www.charlesmudy.com/respmail/
 https://github.com/mailchimp/Email-Blueprints
-
-Contributing
-========
-Anyone with strong knowledge of html email coding can make a pull request for changes and improvements. Please always clarify and if possible share online resources to prove or view your suggestion.
