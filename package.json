@@ -1,0 +1,22 @@
+{
+  "name": "mgh-email-blueprints",
+  "version": "1.0.0",
+  "description": "Modular template patterns for building emails",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/massgeneralgiving/responsive-html-email-template.git"
+  },
+  "author": "Noam Reuveni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/massgeneralgiving/responsive-html-email-template/issues"
+  },
+  "homepage": "https://github.com/massgeneralgiving/responsive-html-email-template#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
