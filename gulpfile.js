@@ -34,6 +34,6 @@ gulp.task('build', function (callback) {
 
 // Watch
 gulp.task('watch', function () {
-   gulp.watch(['./assets/css/less/*.less','./assets/js/js/*.js'], ['compile']);
+   gulp.watch(['./Build/*.html'], ['compile']);
 });
 
