@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/massgeneralgiving/responsive-html-email-template#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "run-sequence": "^1.1.5"
+  },
+  "dependencies": {
+    "gulp-inline-css": "^3.1.0",
+    "inline-css": "^2.2.2"
   }
 }
