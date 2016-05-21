@@ -18,6 +18,8 @@
   "homepage": "https://github.com/massgeneralgiving/responsive-html-email-template#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
     "run-sequence": "^1.1.5"
   },
   "dependencies": {

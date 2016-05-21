@@ -1,1129 +1,350 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{my.emailTitle}}</title>
-
-        <style type="text/css">
-            
-            /*////// Mass General Giving by Noam Reuveni @ https://github.com/nicenoam /////*/
-            /*////// Based on Email Blueprints @ https://github.com/mailchimp/email-blueprints //////*/
-            /*////// Licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license @ http://creativecommons.org/licenses/by-sa/3.0 //////*/
-
-            /*////// RESET STYLES //////*/
-            body, #bodyTable, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}
-            table{border-collapse:collapse;}
-            img, a img{border:0; outline:none; text-decoration:none;}
-            a:link, a:visited, /* Yahoo! Mail Override */ a .yshortcuts /* Yahoo! Mail Override */{ color:<!--$linkButtonColor-->; font-weight:normal; text-decoration:none; }
-            h1, h2, h3, h4, h5, h6{margin:0; padding:0;}
-            p{margin: 1em 0;}           
-            
-            /*////// CLIENT-SPECIFIC STYLES //////*/
-            .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail/Outlook.com to display emails at full width. */
-            .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div{line-height:100%;} /* Force Hotmail/Outlook.com to display line heights normally. */
-            table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook 2007 and up. */
-            #outlook a{padding:0;} /* Force Outlook 2007 and up to provide a "view in browser" message. */
-            img{-ms-interpolation-mode: bicubic;} /* Force IE to smoothly render resized images. */
-            body, table, td, p, a, li, blockquote{-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;} /* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */            
-            
-            /*////// FRAMEWORK STYLES //////*/
-            .flexibleContainerCell{padding-top:20px; padding-Right:20px; padding-Left:20px;}
-            .flexibleImage{height:auto; padding:1px; background-color:#FFFFFF; border:1px solid #DDDDDD;}
-            .insetLeft {margin-left:10px;}
-            .bottomShim{padding-bottom:20px;}
-            .imageContent, .imageContentLast{padding-bottom:20px;}
-            .nestedContainerCell{padding-top:20px; padding-Right:20px; padding-Left:20px;}          
-            
-            /*////// GENERAL STYLES //////*/
-            body, #bodyTable{background-color:#F5F5F5;}
-            div.preheader { display:none!important; font-size:1px; color:#F5F5F5; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; }
-            #bodyCell{padding-top:20px; padding-bottom:40px;}
-            #emailBody{background-color:#FFFFFF; border:1px solid #DDDDDD; border-collapse:separate; border-radius:4px;}
-            
-            h1, h2, h3, h4, h5, h6{color:#444444; font-family:Helvetica; font-size:20px; line-height:125%; text-align:Left;}
-            .textContent, .textContentLast{color:#444444; font-family:Helvetica; font-size:16px; line-height:125%; text-align:Left; padding-bottom:20px;}
-            .textContent a, .textContentLast a{color:<!--$linkButtonColor-->; text-decoration:none;}
-            .captionContent, .captionContentLast{color:#444444; font-family:Helvetica; font-size:12px; line-height:116%; text-align:Left; padding-bottom:20px;}
-            .captionContent a, .captionContentLast a{color:<!--$linkButtonColor-->; text-decoration:none;}
-            
-            .nestedContainer{background-color:#E5E5E5; border:1px solid #CCCCCC;}
-            .emailButton{background-color:<!--$linkButtonColor-->; border-collapse:separate; border-radius:4px;}
-            .buttonContent{color:#FFFFFF; font-family:Helvetica; font-size:18px; font-weight:bold; line-height:100%; padding:15px; text-align:center;}
-            .buttonContent a{color:#FFFFFF; display:block; text-decoration:none;}
-            .emailCalendar{background-color:#FFFFFF; border:1px solid #CCCCCC;}
-            .emailCalendarMonth{background-color:<!--$linkButtonColor-->; color:#FFFFFF; font-family:Helvetica, Arial, sans-serif; font-size:16px; font-weight:bold; padding-top:10px; padding-bottom:10px; text-align:center;}
-            .emailCalendarDay{color:<!--$linkButtonColor-->; font-family:Helvetica, Arial, sans-serif; font-size:60px; font-weight:bold; line-height:100%; padding-top:20px; padding-bottom:20px; text-align:center;}
-            
-            /* ========== Header Styles ========== */
-            #templateHeader{ background-color:#F4F4F4; border-bottom:1px solid #CCCCCC; padding:0!important; margin:0!important; }
-            .headerContent{ color:#505050; font-family:Helvetica; font-size:20px; font-weight:bold; line-height:100%; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0; text-align:left; vertical-align:middle; }
-            .headerContent a:link, .headerContent a:visited, /* Yahoo! Mail Override */ .headerContent a .yshortcuts /* Yahoo! Mail Override */{ color:#EB4102; font-weight:normal; text-decoration:underline; }
-            #headerImage{ max-width:600px; padding:0!important; margin:0!important; }
-            
-            /* ========== Social Bar Styles ========== */
-            #socialBar{ background-color:#F4F4F4; border-top:1px solid #FFFFFF; }
-            .socialBarContent{ color:#808080; font-family:Helvetica; font-size:12px; line-height:150%; padding-top:20px; padding-right:20px; padding-bottom:20px; padding-left:20px; text-align:left; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC;}
-            .socialBarContent a:link, .socialBarContent a:visited, /* Yahoo! Mail Override */ .socialBarContent a .yshortcuts, .socialBarContent a span /* Yahoo! Mail Override */{ color:<!--$linkButtonColor-->; text-decoration:none; }
-            
-            /* ========== Footer Styles ========== */
-            #templateFooter{ background-color:#F4F4F4; border-top:1px solid #FFFFFF; }
-            .footerContent{ color:#808080; font-family:Helvetica; font-size:10px; line-height:150%; padding-top:20px; padding-right:20px; padding-bottom:20px; padding-left:20px; text-align:left; }
-            .footerContent a:link, .footerContent a:visited, /* Yahoo! Mail Override */ .footerContent a .yshortcuts, .footerContent a span /* Yahoo! Mail Override */{ color:#606060; font-weight:normal; text-decoration:underline; }
-            
-            /*////// MOBILE STYLES //////*/
-            @media only screen and (max-width: 480px){          
-                /*////// CLIENT-SPECIFIC STYLES //////*/
-                body{width:100% !important; min-width:100% !important;} /* Force iOS Mail to render the email at full width. */             
-                
-                /*////// FRAMEWORK STYLES //////*/
-                /* CSS selectors are written in attribute selector format to prevent Yahoo Mail from rendering media query styles on desktop.
-                */
-                table[id="emailBody"]{width:100% !important;}
-                table[class="flexibleContainer"]{width:100% !important;}
-                img[class="flexibleImage"]{width:100% !important;}
-                table[class="emailButton"]{width:100% !important;}
-                td[class="buttonContent"]{padding:0 !important;}
-                td[class="buttonContent"] a{padding:15px !important;}
-                td[class="textContentLast"], td[class="imageContentLast"]{padding-top:20px !important;}             
-                
-                /*////// GENERAL STYLES //////*/
-                td[id="bodyCell"]{padding-top:10px !important; padding-Right:10px !important; padding-Left:10px !important;}
-                /* ======== Header Styles ======== */
-                img[id="headerImage"]{ height:auto !important; max-width:600px !important; width:100% !important; }
-
-                td[class="headerContent"]{ font-size:20px !important; line-height:125% !important; }
-    }
-    </style>
-
-
-    </head>
-
-    <body style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #F5F5F5; height: 100% !important; margin: 0; padding: 0; width: 100% !important;">
-    	<div class="mktEditable">{{my.emailPreHeader}}</div>
-            <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #F5F5F5; border-collapse: collapse; height: 100% !important; margin: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; width: 100% !important;">
-                <tr>
-                    <td align="center" valign="top" id="bodyCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 100% !important; margin: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; padding-bottom: 40px; padding-top: 20px; width: 100% !important;">
-                        <table border="0" cellpadding="0" cellspacing="0" width="600" id="emailBody" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #FFFFFF; border: 1px solid #DDDDDD; border-collapse: separate; border-radius: 4px; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                            <!-- // MODULE ROW -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-        
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-        
-                                                <table border="0" cellpadding="0" cellspacing="0" class="flexibleContainer" width="600" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #0090ad; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;" valign="top" width="100%">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td class="textContent" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;"><a href="#?utm_campaign={{my.utmCampaign}}&amp;utm_medium={{my.utmMedium}}&amp;utm_source={{my.utmSource}}" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: <!--$linkButtonColor-->; text-decoration: none;"><img alt="Mass General" border="0" src="https://pages.connect.massgeneral.org/rs/massgeneral/images/mass_general_corp_2x_600.png" width="178" style="-ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none;"></a></td>
-                                                                </tr>
-                                                            </table><!-- // CONTENT TABLE -->
-                                                        </td>
-                                                    </tr>
-                                                </table><!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table><!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                            	<td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                	<!-- BEGIN HEADER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #F4F4F4; border-bottom: 1px solid #CCCCCC; border-collapse: collapse; margin: 0 !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0 !important;">
-                                        <tr>
-                                            <td valign="top" class="headerContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #505050; font-family: Helvetica; font-size: 20px; font-weight: bold; line-height: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; text-align: left; vertical-align: middle;">
-                                            	<div class="mktEditable" id="04-hero-image-01"><a href="#?utm_campaign={{my.utmCampaign}}&amp;utm_medium={{my.utmMedium}}&amp;utm_source={{my.utmSource}}" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"><img src="http://placehold.it/600x190" border="0" id="headerImage" style="-ms-interpolation-mode: bicubic; border: 0; display: block; margin: 0 !important; max-width: 600px; outline: none; padding: 0 !important; text-decoration: none;"></a></div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // END HEADER -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                        <div class="mktEditable" id="04-one-col-body-content-01"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Title</h3>
-                                                                        <br>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table align="Left" border="0" cellpadding="0" cellspacing="0" width="260" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                        <div class="mktEditable" id="04-two-col-body-content-01"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Left Column</h3>
-                                                                        <br>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table align="Right" border="0" cellpadding="0" cellspacing="0" width="260" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="textContentLast" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                        <div class="mktEditable" id="04-two-col-body-content-02"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Right Column</h3>
-                                                                        <br>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-bottom: 20px; padding-top: 20px;">
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="260" class="emailButton" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: <!--$linkButtonColor-->; border-collapse: separate; border-radius: 4px; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td align="center" valign="middle" class="buttonContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #FFFFFF; font-family: Helvetica; font-size: 18px; font-weight: bold; line-height: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 15px; text-align: center;">
-                                                                       <div class="mktEditable" id="04-cta-button-01"> <a href="#" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #FFFFFF; display: block; text-decoration: none;">Donate Now</a></div>                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-bottom: 20px; padding-top: 20px;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="nestedContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E5E5E5; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td align="center" valign="top" class="nestedContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                    <div class="mktEditable" id="04-call-out-box-01"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Title</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-bottom: 20px; padding-top: 20px;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="nestedContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E5E5E5; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="nestedContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Left" border="0" cellpadding="0" cellspacing="0" width="240" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                    <div class="mktEditable" id="04-call-out-box-two-col-01"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Left Column</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-            
-            
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Right" border="0" cellpadding="0" cellspacing="0" width="240" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="textContentLast" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                    <div class="mktEditable" id="04-call-out-box-two-col-02"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Right Column</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-bottom: 20px; padding-top: 20px;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="nestedContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E5E5E5; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td align="center" valign="top" class="nestedContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                    <div class="mktEditable" id="04-call-out-box-cta-01"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Callout</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td align="center" valign="top" class="bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                                    <table border="0" cellpadding="0" cellspacing="0" width="260" class="emailButton" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: <!--$linkButtonColor-->; border-collapse: separate; border-radius: 4px; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                                        <tr>
-                                                                                            <td align="center" valign="middle" class="buttonContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #FFFFFF; font-family: Helvetica; font-size: 18px; font-weight: bold; line-height: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 15px; text-align: center;">
-                                                                                                <div class="mktEditable" id="04-call-out-box-cta-02"><a href="#" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #FFFFFF; display: block; text-decoration: none;">Donate Now</a></div>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="imageContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                        <div class="mktEditable" id="01-large-body-image-01"><img src="http://placehold.it/1120X800" width="554" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table align="Left" border="0" cellpadding="0" cellspacing="0" width="260" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td align="Left" valign="top" class="imageContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                        <div class="mktEditable" id="04-two-col-body-image-01"><img src="http://placehold.it/520x520" width="260" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table align="Right" border="0" cellpadding="0" cellspacing="0" width="260" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td align="Left" valign="top" class="imageContentLast" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                        <div class="mktEditable" id="04-two-col-body-image-02"><img src="http://placehold.it/520x520" width="260" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="imageContentLast" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                        <div class="mktEditable" id="04-one-col-large-body-image-body-content-01"><img src="http://placehold.it/1120x800" width="554" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                        <div class="mktEditable" id="04-one-col-large-body-image-body-content-02"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Title</h3>
-                                                                        <br>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table align="Left" border="0" cellpadding="0" cellspacing="0" width="260" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="imageContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                        <div class="mktEditable" id="04-two-col-body-image-body-content-01"><img src="http://placehold.it/520x520" width="260" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                        <div class="mktEditable" id="04-two-col-body-image-body-content-02"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Left Column</h3>
-                                                                        <br>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table align="Right" border="0" cellpadding="0" cellspacing="0" width="260" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="imageContentLast" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                        <div class="mktEditable" id="04-two-col-body-image-body-content-03"><img src="http://placehold.it/520x520" width="260" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                       <div class="mktEditable" id="04-two-col-body-image-body-content-04"> <h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Right Column</h3>
-                                                                        <br>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table align="Left" border="0" cellpadding="0" cellspacing="0" width="200" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td align="Left" valign="top" class="imageContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                        <div class="mktEditable" id="04-left-image-right-content-01"><img src="http://placehold.it/400x400" width="200" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table align="Right" border="0" cellpadding="0" cellspacing="0" width="340" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                        <div class="mktEditable" id="04-left-image-right-content-02"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Right Column</h3>
-                                                                        <br>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum.</div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table align="Right" border="0" cellpadding="0" cellspacing="0" width="200" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td align="Left" valign="top" class="imageContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                        <div class="mktEditable" id="04-right-image-left-content-01"><img src="http://placehold.it/400x400" width="200" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                            <!-- CONTENT TABLE // -->
-                                                            <table align="Left" border="0" cellpadding="0" cellspacing="0" width="340" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                        <div class="mktEditable" id="04-right-image-left-content-02"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Left Column</h3>
-                                                                        <br>
-                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum.</div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                            <!-- // CONTENT TABLE -->
-
-
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-bottom: 20px; padding-top: 20px;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="nestedContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E5E5E5; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td align="center" valign="top" class="nestedContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="imageContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                                    <div class="mktEditable" id="04-call-out-box-large-image-01"><img src="http://placehold.it/1040x800" width="514" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                    <div class="mktEditable" id="04-call-out-box-large-image-02"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Title</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-bottom: 20px; padding-top: 20px;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="nestedContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E5E5E5; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="nestedContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Left" border="0" cellpadding="0" cellspacing="0" width="240" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="imageContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                                    <div class="mktEditable" id="04-call-out-box-two-col-body-image-01"><img src="http://placehold.it/480x480" width="240" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                   <div class="mktEditable" id="04-call-out-box-two-col-body-image-02"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Left Column</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-            
-            
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Right" border="0" cellpadding="0" cellspacing="0" width="240" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="imageContentLast" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                                    <div class="mktEditable" id="04-call-out-box-two-col-body-image-03"><img src="http://placehold.it/480x480" width="240" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                    <div class="mktEditable" id="04-call-out-box-two-col-body-image-04"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Right Column</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum. Proin ultricies, enim nec suscipit auctor, magna felis pellentesque enim, sit amet egestas leo ligula vel nibh. Suspendisse vel leo mauris. Aliquam erat volutpat. Nullam nec placerat velit.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-bottom: 20px; padding-top: 20px;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="nestedContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E5E5E5; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="nestedContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Left" border="0" cellpadding="0" cellspacing="0" width="200" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td align="Left" valign="top" class="imageContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                                    <div class="mktEditable" id="04-call-out-left-image-right-content-01"><img src="http://placehold.it/400x400" width="200" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-            
-            
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Right" border="0" cellpadding="0" cellspacing="0" width="280" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                   <div class="mktEditable" id="04-call-out-left-image-right-content-02"> <h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Right Column</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-bottom: 20px; padding-top: 20px;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="nestedContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E5E5E5; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="nestedContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Right" border="0" cellpadding="0" cellspacing="0" width="200" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td align="Left" valign="top" class="imageContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                                    <div class="mktEditable" id="04-call-out-right-image-right-content-01"><img src="http://placehold.it/400x400" width="200" class="flexibleImage" style="-ms-interpolation-mode: bicubic; background-color: #FFFFFF; border: 1px solid #DDDDDD; height: auto; outline: none; padding: 1px; text-decoration: none;"></div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-            
-            
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Left" border="0" cellpadding="0" cellspacing="0" width="280" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                    <div class="mktEditable" id="04-call-out-right-image-right-content-02"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Left Column</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                            <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-bottom: 20px; padding-top: 20px;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="nestedContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E5E5E5; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="nestedContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Right" border="0" cellpadding="0" cellspacing="0" width="160" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td align="center" valign="top" class="bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                                    <table border="0" cellpadding="0" cellspacing="0" width="160" class="emailCalendar" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                                        <tr>
-                                                                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 5px;">
-                                                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                                                    <tr>
-                                                                                                        <td align="center" valign="top" class="emailCalendarMonth" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: <!--$linkButtonColor-->; color: #FFFFFF; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 10px; padding-top: 10px; text-align: center;">
-                                                                                                            <div class="mktEditable" id="04-right-cal-left-content-month">September</div>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td align="center" valign="top" class="emailCalendarDay" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: <!--$linkButtonColor-->; font-family: Helvetica, Arial, sans-serif; font-size: 60px; font-weight: bold; line-height: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; padding-top: 20px; text-align: center;">
-                                                                                                            <div class="mktEditable" id="04-right-cal-left-content-day">16</div>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                </table>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-            
-            
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Left" border="0" cellpadding="0" cellspacing="0" width="320" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                    <div class="mktEditable" id="04-right-cal-left-content-content-01"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Left Column</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                                                        <!-- MODULE ROW // -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- CENTERING TABLE // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                <!-- FLEXIBLE CONTAINER // -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td align="center" valign="top" width="600" class="flexibleContainerCell bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-bottom: 20px; padding-top: 20px;">
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="nestedContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E5E5E5; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                <tr>
-                                                                    <td valign="top" class="nestedContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-Left: 20px; padding-Right: 20px; padding-top: 20px;">
-
-
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Left" border="0" cellpadding="0" cellspacing="0" width="160" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td align="center" valign="top" class="bottomShim" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px;">
-                                                                                    <table border="0" cellpadding="0" cellspacing="0" width="160" class="emailCalendar" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                                        <tr>
-                                                                                            <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 5px;">
-                                                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                                                    <tr>
-                                                                                                        <td align="center" valign="top" class="emailCalendarMonth" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: <!--$linkButtonColor-->; color: #FFFFFF; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 10px; padding-top: 10px; text-align: center;">
-                                                                                                            <div class="mktEditable" id="04-left-cal-right-content-month">September</div>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td align="center" valign="top" class="emailCalendarDay" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: <!--$linkButtonColor-->; font-family: Helvetica, Arial, sans-serif; font-size: 60px; font-weight: bold; line-height: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; padding-top: 20px; text-align: center;">
-                                                                                                            <div class="mktEditable" id="04-left-cal-right-content-day">16</div>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                </table>
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-            
-            
-                                                                        <!-- CONTENT TABLE // -->
-                                                                        <table align="Right" border="0" cellpadding="0" cellspacing="0" width="320" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                                            <tr>
-                                                                                <td valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #444444; font-family: Helvetica; font-size: 16px; line-height: 125%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; text-align: Left;">
-                                                                                    <div class="mktEditable" id="04-left-cal-right-content-01"><h3 style="color: #444444; font-family: Helvetica; font-size: 20px; line-height: 125%; margin: 0; padding: 0; text-align: Left;">Right Column</h3>
-                                                                                    <br>
-                                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis mauris a arcu laoreet, a ullamcorper dui rutrum.</div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                        <!-- // CONTENT TABLE -->
-
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // FLEXIBLE CONTAINER -->
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // CENTERING TABLE -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-                            <!-- MODULE ROW //  -->
-                            <tr>
-                                <td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    <!-- BEGIN Social // -->
-        
-                                    <table border="0" cellpadding="0" cellspacing="0" id="socialBar" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #F4F4F4; border-collapse: collapse; border-top: 1px solid #FFFFFF; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                        <tr>
-                                            <td class="socialBarContent" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-bottom: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC; color: #808080; font-family: Helvetica; font-size: 12px; line-height: 150%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 20px; text-align: left;">
-                                            <div class="mktEditable" id="04-social-01">
-                                                <p style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 1em 0;"><strong>Connect with us. Hear about the latest Mass General breakthroughs first, get invited to events and lots more.</strong></p>
-        
-                                                <p style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 1em 0;"><a href="https://www.facebook.com/massgeneral" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"><img alt="Facebook" height="32" src="http://pages.connect.massgeneral.org/rs/massgeneral/images/fb_square.png" width="32" style="-ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none;"></a>&nbsp;&nbsp;<a href="https://twitter.com/massgeneral" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"><img alt="Twitter" height="32" src="http://pages.connect.massgeneral.org/rs/massgeneral/images/tw_square.png" width="32" style="-ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none;"></a>&nbsp;&nbsp;<a href="http://www.youtube.com/massgeneralhospital" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"><img alt="YouTube" height="32" src="http://pages.connect.massgeneral.org/rs/massgeneral/images/yt_square.png" width="32" style="-ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none;"></a></p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table><!-- // END Social -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-                            <!-- MODULE ROW //  -->
-                            <tr>
-                            	<td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">                                   
-                                    <!-- BEGIN Footer // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" id="templateFooter" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #F4F4F4; border-collapse: collapse; border-top: 1px solid #FFFFFF; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                    	<tr>
-                                            <td class="footerContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #808080; font-family: Helvetica; font-size: 10px; line-height: 150%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; padding-top: 0; text-align: left;" valign="top">
-                                            <div class="mktEditable" id="04-legal">
-                                                <p style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 1em 0;">&copy; 2016 Massachusetts General Hospital <a href="https://maps.google.com/?q=55+Fruit+Street,+Boston,+MA+02114" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">55 Fruit Street, Boston, MA 02114</a> | <a href="tel:617-726-2200" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">617.726.2200</a></p>
-                                                <p style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 1em 0;">This message was sent to {{lead.Email Address}} by <a href="mailto:{{my.emailSenderAddress}}" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">{{my.emailSenderAddress}}</a></p>
-        
-                                                <p style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 1em 0;">You are receiving this message from Mass General because you signed up for our email list either on our web site, while making a gift or while registering for an event.</p>
-                                                
-                                                <p style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 1em 0;">If you do not wish to receive certain or all fundraising communications from the Mass General Development Office, you can unsubscribe or update your preferences using the links below.</p>
-        
-                                                <p style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; margin: 1em 0;"><a href="https://pages.connect.massgeneral.org/manage-your-email-subscription.html?utm_campaign={{my.utmCampaign}}&amp;utm_medium={{my.utmMedium}}&amp;utm_source={{my.utmSource}}" target="_blank" id="managepreferences" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">Manage Subscription Preferences</a>&nbsp;|&nbsp;<a href="https://pages.connect.massgeneral.org/manage-your-email-subscription.html?utm_campaign={{my.utmCampaign}}&amp;utm_medium={{my.utmMedium}}&amp;utm_source={{my.utmSource}}" target="_blank" id="unsubscribe" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">Unsubscribe</a>&nbsp;|&nbsp;<a href="http://pages.connect.massgeneral.org/index.php/email/emailWebview?mkt_tok=##MKT_TOK##&utm_campaign={{my.utmCampaign}}&amp;utm_medium={{my.utmMedium}}&amp;utm_source={{my.utmSource}}" target="_blank" id="viewaswebpage" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">View in Browser</a>&nbsp;|&nbsp;<a href="http://giving.massgeneral.org/privacy-and-security/privacy-policy/?utm_campaign={{my.utmCampaign}}&amp;utm_medium={{my.utmMedium}}&amp;utm_source={{my.utmSource}}" target="_blank" id="privacypolicy" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">Privacy Policy</a></p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table><!-- // END FOOTER -->
-                                </td>
-                            </tr>
-                            <!-- // MODULE ROW -->
-
-                        </table><!-- // EMAIL CONTAINER -->
-                    </td>
-                </tr>
-            </table>
-        <!-- Litmus Token -->
-        {{my.Litmus}}
-    </body>
+<!-- Head --> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #E1E1E1; margin: 0; padding: 0;">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="format-detection" content="telephone=no"> <!-- disable auto telephone linking in iOS -->
+		<title>Respmail is a response HTML email designed to work on all major email platforms and smartphones</title>
+		<style type="text/css">
+			/* RESET STYLES */
+			html { background-color:#E1E1E1; margin:0; padding:0; }
+			body, #bodyTable, #bodyCell, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;font-family:Helvetica, Arial, "Lucida Grande", sans-serif;}
+			table{border-collapse:collapse;}
+			table[id=bodyTable] {width:100%!important;margin:auto;max-width:600px!important;color:#7A7A7A;font-weight:normal;}
+			img, a img{border:0; outline:none; text-decoration:none;height:auto; line-height:100%;}
+			a {text-decoration:none !important;border-bottom: 1px solid;}
+			h1, h2, h3, h4, h5, h6{color:#5F5F5F; font-weight:normal; font-family:Helvetica; font-size:20px; line-height:125%; text-align:Left; letter-spacing:normal;margin-top:0;margin-right:0;margin-bottom:10px;margin-left:0;padding-top:0;padding-bottom:0;padding-left:0;padding-right:0;}
+
+			/* CLIENT-SPECIFIC STYLES */
+			.ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail/Outlook.com to display emails at full width. */
+			.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div{line-height:100%;} /* Force Hotmail/Outlook.com to display line heights normally. */
+			table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook 2007 and up. */
+			#outlook a{padding:0;} /* Force Outlook 2007 and up to provide a "view in browser" message. */
+			img{-ms-interpolation-mode: bicubic;display:block;outline:none; text-decoration:none;} /* Force IE to smoothly render resized images. */
+			body, table, td, p, a, li, blockquote{-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; font-weight:normal!important;} /* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
+			.ExternalClass td[class="ecxflexibleContainerBox"] h3 {padding-top: 10px !important;} /* Force hotmail to push 2-grid sub headers down */
+
+			/* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
+
+			/* ========== Page Styles ========== */
+			h1{display:block;font-size:26px;font-style:normal;font-weight:normal;line-height:100%;}
+			h2{display:block;font-size:20px;font-style:normal;font-weight:normal;line-height:120%;}
+			h3{display:block;font-size:17px;font-style:normal;font-weight:normal;line-height:110%;}
+			h4{display:block;font-size:18px;font-style:italic;font-weight:normal;line-height:100%;}
+			.flexibleImage{height:auto;}
+			.linkRemoveBorder{border-bottom:0 !important;}
+			table[class=flexibleContainerCellDivider] {padding-bottom:0 !important;padding-top:0 !important;}
+
+			body, #bodyTable{background-color:#E1E1E1;}
+			#emailHeader{background-color:#E1E1E1;}
+			#emailBody{background-color:#FFFFFF;}
+			#emailFooter{background-color:#E1E1E1;}
+			.nestedContainer{background-color:#F8F8F8; border:1px solid #CCCCCC;}
+			.emailButton{background-color:#205478; border-collapse:separate;}
+			.buttonContent{color:#FFFFFF; font-family:Helvetica; font-size:18px; font-weight:bold; line-height:100%; padding:15px; text-align:center;}
+			.buttonContent a{color:#FFFFFF; display:block; text-decoration:none!important; border:0!important;}
+			.emailCalendar{background-color:#FFFFFF; border:1px solid #CCCCCC;}
+			.emailCalendarMonth{background-color:#205478; color:#FFFFFF; font-family:Helvetica, Arial, sans-serif; font-size:16px; font-weight:bold; padding-top:10px; padding-bottom:10px; text-align:center;}
+			.emailCalendarDay{color:#205478; font-family:Helvetica, Arial, sans-serif; font-size:60px; font-weight:bold; line-height:100%; padding-top:20px; padding-bottom:20px; text-align:center;}
+			.imageContentText {margin-top: 10px;line-height:0;}
+			.imageContentText a {line-height:0;}
+			#invisibleIntroduction {display:none !important;} /* Removing the introduction text from the view */
+
+			/*FRAMEWORK HACKS & OVERRIDES */
+			span[class=ios-color-hack] a {color:#275100!important;text-decoration:none!important;} /* Remove all link colors in IOS (below are duplicates based on the color preference) */
+			span[class=ios-color-hack2] a {color:#205478!important;text-decoration:none!important;}
+			span[class=ios-color-hack3] a {color:#8B8B8B!important;text-decoration:none!important;}
+			/* A nice and clean way to target phone numbers you want clickable and avoid a mobile phone from linking other numbers that look like, but are not phone numbers.  Use these two blocks of code to "unstyle" any numbers that may be linked.  The second block gives you a class to apply with a span tag to the numbers you would like linked and styled.
+			Inspired by Campaign Monitor's article on using phone numbers in email: http://www.campaignmonitor.com/blog/post/3571/using-phone-numbers-in-html-email/.
+			*/
+			.a[href^="tel"], a[href^="sms"] {text-decoration:none!important;color:#606060!important;pointer-events:none!important;cursor:default!important;}
+			.mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {text-decoration:none!important;color:#606060!important;pointer-events:auto!important;cursor:default!important;}
+
+
+			/* MOBILE STYLES */
+			@media only screen and (max-width: 480px){
+				/*////// CLIENT-SPECIFIC STYLES //////*/
+				body{width:100% !important; min-width:100% !important;} /* Force iOS Mail to render the email at full width. */
+
+				/* FRAMEWORK STYLES */
+				/*
+				CSS selectors are written in attribute
+				selector format to prevent Yahoo Mail
+				from rendering media query styles on
+				desktop.
+				*/
+				/*td[class="textContent"], td[class="flexibleContainerCell"] { width: 100%; padding-left: 10px !important; padding-right: 10px !important; }*/
+				table[id="emailHeader"],
+				table[id="emailBody"],
+				table[id="emailFooter"],
+				table[class="flexibleContainer"],
+				td[class="flexibleContainerCell"] {width:100% !important;}
+				td[class="flexibleContainerBox"], td[class="flexibleContainerBox"] table {display: block;width: 100%;text-align: left;}
+				/*
+				The following style rule makes any
+				image classed with 'flexibleImage'
+				fluid when the query activates.
+				Make sure you add an inline max-width
+				to those images to prevent them
+				from blowing out.
+				*/
+				td[class="imageContent"] img {height:auto !important; width:100% !important; max-width:100% !important; }
+				img[class="flexibleImage"]{height:auto !important; width:100% !important;max-width:100% !important;}
+				img[class="flexibleImageSmall"]{height:auto !important; width:auto !important;}
+
+
+				/*
+				Create top space for every second element in a block
+				*/
+				table[class="flexibleContainerBoxNext"]{padding-top: 10px !important;}
+
+				/*
+				Make buttons in the email span the
+				full width of their container, allowing
+				for left- or right-handed ease of use.
+				*/
+				table[class="emailButton"]{width:100% !important;}
+				td[class="buttonContent"]{padding:0 !important;}
+				td[class="buttonContent"] a{padding:15px !important;}
+
+			}
+
+			/*  CONDITIONS FOR ANDROID DEVICES ONLY
+			*   http://developer.android.com/guide/webapps/targeting.html
+			*   http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-devices/ ;
+			=====================================================*/
+
+			@media only screen and (-webkit-device-pixel-ratio:.75){
+				/* Put CSS for low density (ldpi) Android layouts in here */
+			}
+
+			@media only screen and (-webkit-device-pixel-ratio:1){
+				/* Put CSS for medium density (mdpi) Android layouts in here */
+			}
+
+			@media only screen and (-webkit-device-pixel-ratio:1.5){
+				/* Put CSS for high density (hdpi) Android layouts in here */
+			}
+			/* end Android targeting */
+
+			/* CONDITIONS FOR IOS DEVICES ONLY
+			=====================================================*/
+			@media only screen and (min-device-width : 320px) and (max-device-width:568px) {
+
+			}
+			/* end IOS targeting */
+		</style>
+		<!--
+			Outlook Conditional CSS
+
+			These two style blocks target Outlook 2007 & 2010 specifically, forcing
+			columns into a single vertical stack as on mobile clients. This is
+			primarily done to avoid the 'page break bug' and is optional.
+
+			More information here:
+			http://templates.mailchimp.com/development/css/outlook-conditional-css
+		-->
+		<!--[if mso 12]>
+			<style type="text/css">
+				.flexibleContainer{display:block !important; width:100% !important;}
+			</style>
+		<![endif]-->
+		<!--[if mso 14]>
+			<style type="text/css">
+				.flexibleContainer{display:block !important; width:100% !important;}
+			</style>
+		<![endif]-->
+	</head>
+<!-- Body top -->
+<body bgcolor="#E1E1E1" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E1E1E1; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: normal !important; height: 100% !important; margin: 0; padding: 0; width: 100% !important;">
+		<center style="background-color:#E1E1E1;">
+			<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E1E1E1; border-collapse: collapse; color: #7A7A7A; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: normal !important; height: 100% !important; margin: 0; max-width: 600px !important; min-width: 100% !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; table-layout: fixed; width: 100% !important;">
+				<tr>
+					<td align="center" valign="top" id="bodyCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-family: Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: normal !important; height: 100% !important; margin: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; width: 100% !important;">
+						<table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="600" id="emailBody" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #FFFFFF; border-collapse: collapse; font-weight: normal !important; margin-top: 10px; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+<tr>
+								<td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+									<!-- CENTERING TABLE // -->
+									<!--
+										The centering table keeps the content
+										tables centered in the emailBody table,
+										in case its width is set to 100%.
+									-->
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; color: #FFFFFF; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" bgcolor="#007ea3">
+										<tr>
+											<td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+												<!-- FLEXIBLE CONTAINER // -->
+												<!--
+													The flexible container has a set width
+													that gets overridden by the media query.
+													Most content tables within can then be
+													given 100% widths.
+												-->
+												<table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+													<tr>
+														<td align="center" valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+
+															<!-- CONTENT TABLE // -->
+															<!--
+															The content table is the first element
+																that's entirely separate from the structural
+																framework of the email.
+															-->
+															<table border="0" cellpadding="30" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																<tr>
+																	<td align="center" valign="top" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																		<h1 style="color: #FFFFFF; display: block; font-family: Helvetica,Arial,sans-serif; font-size: 35px; font-style: normal; font-weight: normal; letter-spacing: normal; line-height: 100%; margin-bottom: 5px; margin-left: 0; margin-right: 0; margin-top: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; text-align: center;">Introduction header</h1>
+																		<h2 style="color: #205478; display: block; font-family: Helvetica,Arial,sans-serif; font-size: 23px; font-style: normal; font-weight: normal; letter-spacing: normal; line-height: 135%; margin-bottom: 10px; margin-left: 0; margin-right: 0; margin-top: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; text-align: center;">Subheader introduction</h2>
+																		<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</div>
+																	</td>
+																</tr>
+															</table>
+															<!-- // CONTENT TABLE -->
+
+														</td>
+													</tr>
+												</table>
+												<!-- // FLEXIBLE CONTAINER -->
+											</td>
+										</tr>
+									</table>
+									<!-- // CENTERING TABLE -->
+								</td>
+							</tr>
+							<!-- // MODULE ROW -->
+<!-- MODULE ROW // -->
+							<!--  The "mc:hideable" is a feature for MailChimp which allows
+								you to disable certain row. It works perfectly for our row structure.
+								http://kb.mailchimp.com/article/template-language-creating-editable-content-areas/
+							-->
+							<tr mc:hideable="">
+								<td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+									<!-- CENTERING TABLE // -->
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+										<tr>
+											<td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+												<!-- FLEXIBLE CONTAINER // -->
+												<table border="0" cellpadding="30" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+													<tr>
+														<td valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+
+															<!-- CONTENT TABLE // -->
+															<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																<tr>
+																	<td align="left" valign="top" class="flexibleContainerBox" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																		<table border="0" cellpadding="0" cellspacing="0" width="260" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; max-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																			<tr>
+																				<td align="left" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																					<h3 style="color: #5F5F5F; display: block; font-family: Helvetica,Arial,sans-serif; font-size: 20px; font-style: normal; font-weight: normal; letter-spacing: normal; line-height: 125%; margin-bottom: 3px; margin-left: 0; margin-right: 0; margin-top: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; text-align: left;">Left Column</h3>
+																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis.</div>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																	<td align="right" valign="middle" class="flexibleContainerBox" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																		<table class="flexibleContainerBoxNext" border="0" cellpadding="0" cellspacing="0" width="260" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; max-width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																			<tr>
+																				<td align="left" class="textContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																					<h3 style="color: #5F5F5F; display: block; font-family: Helvetica,Arial,sans-serif; font-size: 20px; font-style: normal; font-weight: normal; letter-spacing: normal; line-height: 125%; margin-bottom: 3px; margin-left: 0; margin-right: 0; margin-top: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; text-align: left;">Right Column</h3>
+																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis.</div>
+																				</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</table>
+															<!-- // CONTENT TABLE -->
+
+														</td>
+													</tr>
+												</table>
+												<!-- // FLEXIBLE CONTAINER -->
+											</td>
+										</tr>
+									</table>
+									<!-- // CENTERING TABLE -->
+								</td>
+							</tr>
+							<!-- // MODULE ROW -->
+<!-- MODULE ROW // -->
+							<tr>
+								<td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+									<!-- CENTERING TABLE // -->
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+										<tr style="padding-top:0;">
+											<td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+												<!-- FLEXIBLE CONTAINER // -->
+												<table border="0" cellpadding="30" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+													<tr>
+														<td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding-top: 0;" align="center" valign="top" width="600" class="flexibleContainerCell">
+
+															<!-- CONTENT TABLE // -->
+															<table border="0" cellpadding="0" cellspacing="0" width="50%" class="emailButton" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #007ea3; border-collapse: separate; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																<tr>
+																	<td align="center" valign="middle" class="buttonContent" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #FFFFFF; font-family: Helvetica; font-size: 18px; font-weight: normal !important; line-height: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 15px; padding-bottom: 15px; padding-left: 15px; padding-right: 15px; padding-top: 15px; text-align: center;">
+																		<a style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border: 0 !important; border-bottom: 1px solid; color: #FFFFFF; display: block; font-family: Helvetica,Arial,sans-serif; font-size: 20px; font-weight: normal !important; line-height: 135%; text-decoration: none !important;" href="#" target="_blank">Confirmation</a>
+																	</td>
+																</tr>
+															</table>
+															<!-- // CONTENT TABLE -->
+
+														</td>
+													</tr>
+												</table>
+												<!-- // FLEXIBLE CONTAINER -->
+											</td>
+										</tr>
+									</table>
+									<!-- // CENTERING TABLE -->
+								</td>
+							</tr>
+							<!-- // MODULE ROW -->
+</table>
+						<!-- // END -->
+
+						<!-- EMAIL FOOTER // -->
+						<table bgcolor="#E1E1E1" border="0" cellpadding="0" cellspacing="0" width="600" id="emailFooter" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background-color: #E1E1E1; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+							<tr>
+								<td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+									<!-- CENTERING TABLE // -->
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+										<tr>
+											<td align="center" valign="top" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+												<!-- FLEXIBLE CONTAINER // -->
+												<table border="0" cellpadding="0" cellspacing="0" width="600" class="flexibleContainer" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+													<tr>
+														<td align="center" valign="top" width="600" class="flexibleContainerCell" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+															<table border="0" cellpadding="30" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+																<tr>
+																	<td valign="top" bgcolor="#E1E1E1" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-weight: normal !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+
+																		<div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
+																			<div>Copyright &#169; 2014 <a href="http://www.charlesmudy.com/respmail/" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-bottom: 1px solid; color: #828282; font-weight: normal !important; text-decoration: none !important;"><span style="color:#828282;">Respmail</span></a>. All&nbsp;rights&nbsp;reserved.</div>
+																			<div>If you do not want to recieve emails from us, you can <a href="#" target="_blank" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-bottom: 1px solid; color: #828282; font-weight: normal !important; text-decoration: none !important;"><span style="color:#828282;">unsubscribe</span></a>.</div>
+																		</div>
+
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+												<!-- // FLEXIBLE CONTAINER -->
+											</td>
+										</tr>
+									</table>
+									<!-- // CENTERING TABLE -->
+								</td>
+							</tr>
+
+						</table>
+						<!-- // END -->
+
+					</td>
+				</tr>
+			</table>
+		</center>
+	</body>
 </html>

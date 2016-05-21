@@ -1,7 +1,9 @@
 // ## Globals
 var gulp = require('gulp');
+var plumber = require('gulp-plumber');
 var concat = require('gulp-concat');
 var inlineCss = require('gulp-inline-css');
+var notify = require('gulp-notify');
 var runSequence  = require('run-sequence');
 
 
@@ -9,7 +11,8 @@ var runSequence  = require('run-sequence');
 gulp.task('compile', function() {
   return gulp.src(['./Build/*.html'])
     .pipe(concat('compiled.html'))
-    .pipe(gulp.dest('./Compiled'));
+    .pipe(gulp.dest('./Compiled'))
+    .pipe(notify('Compile task completed!'));
 });
 
 
@@ -22,18 +25,22 @@ gulp.task('inline', function() {
 	        	removeLinkTags: false,
 	        	preserveMediaQueries: true
         }))
-        .pipe(gulp.dest('./Output'));
+        .pipe(gulp.dest('./Output'))
+        .pipe(notify('Inline task completed!'));
 });
 
+
 // Run Build
-gulp.task('build', function (callback) {
+gulp.task('build', function () {
   runSequence('compile',
-              'inline',
-              callback);
+              'inline')
+   .pipe(notify('Build task completed!'));
 });
+
 
 // Watch
 gulp.task('watch', function () {
-   gulp.watch(['./Build/*.html'], ['compile']);
+   gulp.watch(['./Build/*.html'], ['compile'])
+   .pipe(notify('Compile task completed from watch!'));
 });
 
